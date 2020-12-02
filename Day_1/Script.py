@@ -18,6 +18,7 @@ for i in range(0, amount_numbers):
             solution = int(numbers[i] * difference[i])
 print(solution)
 
+print("Starting Part Two")
 difference = np.zeros(amount_numbers**2)
 first_number = np.zeros(amount_numbers**2)
 second_number = np.zeros(amount_numbers**2)
@@ -32,16 +33,3 @@ for i in range(0, amount_numbers**2):
         if numbers[j] == difference[i]:
             solution = int(numbers[j] * first_number[i] * second_number[i])
 print(solution)
-print("Starting Part Two")
-solution = -1
-for index, row in data.iterrows():
-    if not solution == -1:
-        break 
-    for index_2, row_2 in data.iterrows():
-        if not solution == -1:
-            break 
-        for index_3, row_3 in data.iterrows():
-            if row['Numbers'] + row_2['Numbers'] + row_3['Numbers'] == 2020:
-                solution = row['Numbers'] * row_2['Numbers'] * row_3['Numbers']
-                print(solution)
-                break
