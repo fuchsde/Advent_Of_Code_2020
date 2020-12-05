@@ -20,7 +20,8 @@ if __name__ == "__main__":
     data = pd.read_csv("Data.txt", header=None, names=['Numbers']) 
     numbers_array = data.Numbers.to_numpy()
 
-    test_numbers_array = np.array([1721, 979, 366, 299, 675, 1456])
+    data = pd.read_csv("Test.txt", header=None, names=['Numbers']) 
+    test_numbers_array = data.Numbers.to_numpy()
     test_result_two_summands = 514579
     test_result_three_summands = 241861950
 

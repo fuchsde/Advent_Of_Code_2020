@@ -39,7 +39,8 @@ if __name__ == "__main__":
     data = pd.read_csv("Data.txt", header=None, names=['Passwords']) 
     data_list = data['Passwords'].astype(str).values.tolist()
 
-    test_list = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc']
+    data = pd.read_csv("Test.txt", header=None, names=['Passwords']) 
+    test_list = data['Passwords'].astype(str).values.tolist()
     test_result_first_policy = 2
     test_result_second_policy = 1
 
