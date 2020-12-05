@@ -1,35 +1,34 @@
 import pandas as pd
 import numpy as np
+import pytest
 
-data = pd.read_csv("Data.txt", header=None, names=['Numbers']) 
+def multiply_two_summands(numbers_array, sum):
+    for number in numbers_array:
+        if sum - number in numbers_array:
+            solution = number * (sum - number)
+    return solution
 
-sum = 2020
-numbers = data.Numbers.to_numpy()
-amount_numbers = len(numbers)
+def multiply_three_summands(numbers_array, sum):
+    for first_number in numbers_array:
+        for second_number in numbers_array:
+            if sum - first_number - second_number in numbers_array:
+                third_number = sum - second_number - first_number
+                solution = first_number * second_number * third_number
+    return solution
 
-print("Starting Part One")
-difference = np.zeros(amount_numbers)
-for i in range(0, amount_numbers):
-    difference[i] = sum - numbers[i]
+if __name__ == "__main__":
 
-for i in range(0, amount_numbers):
-    for j in range(0, amount_numbers):
-        if numbers[i] == difference[j]:
-            solution = int(numbers[i] * difference[i])
-print(solution)
+    data = pd.read_csv("Data.txt", header=None, names=['Numbers']) 
+    numbers_array = data.Numbers.to_numpy()
 
-print("Starting Part Two")
-difference = np.zeros(amount_numbers**2)
-first_number = np.zeros(amount_numbers**2)
-second_number = np.zeros(amount_numbers**2)
-for i in range(0, amount_numbers):
-    for j in range(0, amount_numbers):
-        first_number[i * amount_numbers + j] = numbers[i]
-        second_number[i * amount_numbers + j] = numbers[j]
-        difference[i * amount_numbers + j] = sum - numbers[i] - numbers[j]
+    test_numbers_array = np.array([1721, 979, 366, 299, 675, 1456])
+    test_result_two_suummands = 514579
+    test_result_three_summands = 241861950
 
-for i in range(0, amount_numbers**2):
-    for j in range(0, amount_numbers):
-        if numbers[j] == difference[i]:
-            solution = int(numbers[j] * first_number[i] * second_number[i])
-print(solution)
+    sum = 2020
+
+    assert(multiply_two_summands(test_numbers_array, sum) == test_result_two_suummands)
+    print("Solution Part One: " + str(multiply_two_summands(numbers_array, sum)))
+
+    assert(multiply_three_summands(test_numbers_array, sum) == test_result_three_summands)
+    print("Solution Part Two: " + str(multiply_three_summands(numbers_array, sum)))
