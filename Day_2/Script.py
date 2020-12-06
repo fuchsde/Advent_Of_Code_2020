@@ -36,10 +36,10 @@ def check_password_policy_two(data_list):
 
 if __name__ == "__main__":
 
-    data = pd.read_csv("Data.txt", header=None, names=['Passwords']) 
+    data = pd.read_csv("Day_2//Data.txt", header=None, names=['Passwords']) 
     data_list = data['Passwords'].astype(str).values.tolist()
 
-    data = pd.read_csv("Test.txt", header=None, names=['Passwords']) 
+    data = pd.read_csv("Day_2//Test.txt", header=None, names=['Passwords']) 
     test_list = data['Passwords'].astype(str).values.tolist()
     test_result_first_policy = 2
     test_result_second_policy = 1

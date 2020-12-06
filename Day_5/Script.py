@@ -25,10 +25,10 @@ def find_free_seat_id(seats_coded):
 
 if __name__ == "__main__":
 
-    data = pd.read_csv("Data.txt", header=None) 
+    data = pd.read_csv("Day_5//Data.txt", header=None) 
     seats_coded = data.values.tolist()
 
-    data = pd.read_csv("Test_Part_One.txt", header=None) 
+    data = pd.read_csv("Day_5//Test_Part_One.txt", header=None) 
     test_seats_coded = data.values.tolist()
 
     test_result_decoding = np.array([567, 119, 820])

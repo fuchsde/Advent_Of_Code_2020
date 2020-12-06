@@ -82,10 +82,10 @@ def check_passport_policy_two(passports):
 
 if __name__ == "__main__":
 
-    passports = parse_passports_from_batch_file("Data.txt")
+    passports = parse_passports_from_batch_file("Day_4//Data.txt")
 
-    test_passports_part_one = parse_passports_from_batch_file("Test_Part_One.txt")
-    test_passports_part_two = parse_passports_from_batch_file("Test_Part_Two.txt")
+    test_passports_part_one = parse_passports_from_batch_file("Day_4//Test_Part_One.txt")
+    test_passports_part_two = parse_passports_from_batch_file("Day_4//Test_Part_Two.txt")
     test_result_first_policy = 2
     test_result_second_policy = 4
 

@@ -34,9 +34,9 @@ def check_sum_same_group_answer(group_answers, group_members):
 
 if __name__ == "__main__":
 
-    group_answers, group_members = parse_group_answers_from_batch_file("Data.txt")
+    group_answers, group_members = parse_group_answers_from_batch_file("Day_6//Data.txt")
 
-    test_group_answers, test_group_members = parse_group_answers_from_batch_file("Test.txt")
+    test_group_answers, test_group_members = parse_group_answers_from_batch_file("Day_6//Test.txt")
     test_sum_group_answers = 11
     test_sum_same_group_answers = 6
 

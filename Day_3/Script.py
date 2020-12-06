@@ -30,10 +30,10 @@ def count_trees_part_two(route, tree):
 
 if __name__ == "__main__":
 
-    data = pd.read_csv("Data.txt", header=None) 
+    data = pd.read_csv("Day_3//Data.txt", header=None) 
     route = data.values.tolist()
 
-    data = pd.read_csv("Test.txt", header=None) 
+    data = pd.read_csv("Day_3//Test.txt", header=None) 
     test_route = data.values.tolist()
     test_result_first_route = 7
     test_result_second_route = 336

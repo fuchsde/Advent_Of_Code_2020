@@ -17,10 +17,10 @@ def multiply_three_summands(numbers_array, sum):
 
 if __name__ == "__main__":
 
-    data = pd.read_csv("Data.txt", header=None, names=['Numbers']) 
+    data = pd.read_csv("Day_1//Data.txt", header=None, names=['Numbers']) 
     numbers_array = data.Numbers.to_numpy()
 
-    data = pd.read_csv("Test.txt", header=None, names=['Numbers']) 
+    data = pd.read_csv("Day_1//Test.txt", header=None, names=['Numbers']) 
     test_numbers_array = data.Numbers.to_numpy()
     test_result_two_summands = 514579
     test_result_three_summands = 241861950
