@@ -1,4 +1,3 @@
-import pandas as pd
 import re
 
 def parse_passports_from_batch_file(path):
