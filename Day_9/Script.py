@@ -35,9 +35,8 @@ def find_encryption_weakness(number_stream, irregular_number):
 
             if np.sum(circular_buffer) == irregular_number:
                 encryption_weakness = int(np.min(circular_buffer) + np.max(circular_buffer))
-
-            if encryption_weakness > 0:
                 break
+
         if encryption_weakness > 0:
             break
 
