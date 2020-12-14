@@ -18,6 +18,7 @@ def find_difference_prodcut_longest_chain(available_adapters):
 
 def find_amount_possible_arrangements(available_adapters):
     amount_arrangements = 1
+    dict_amount_arrangements = {}
     consecutive_difference_one = np.zeros(1)
     available_adapters_sorted = append_edge_cases_and_sort(available_adapters)
 
@@ -30,15 +31,21 @@ def find_amount_possible_arrangements(available_adapters):
                 consecutive_difference_one = np.append(consecutive_difference_one, 0)
 
     consecutive_difference_one[consecutive_difference_one < 1] = 0
+    unique_differences = np.unique(consecutive_difference_one).astype(int)
+
+    for i in range(0, len(unique_differences)):
+        counter = 0 
+        for j in range(0, (2**unique_differences[i])):
+            binary = bin(j)[2:]
+            while len(binary) < len(bin(2**unique_differences[i] - 1)[2:]):
+                binary = '0' + binary
+
+            if not '000' in binary:
+                counter = counter + 1
+        dict_amount_arrangements.update({unique_differences[i]: counter})
 
     for i in range(0, len(consecutive_difference_one)):
-        if consecutive_difference_one[i] < 3:
-            amount_arrangements = amount_arrangements * 2 ** consecutive_difference_one[i]
-        elif consecutive_difference_one[i] == 3: 
-            amount_arrangements = amount_arrangements * (2 ** consecutive_difference_one[i] - 1)
-        else:
-            print("Case not covered yet. Consecutive difference is greater 4.")
-            return 0
+            amount_arrangements = amount_arrangements * dict_amount_arrangements[consecutive_difference_one[i]]
 
     return int(amount_arrangements)
 
