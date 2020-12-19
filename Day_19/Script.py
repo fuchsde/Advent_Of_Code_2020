@@ -57,17 +57,26 @@ if __name__ == "__main__":
         for line in data_file:
             satellite_messages_and_rules.append(line.strip())
     
-    test_satellite_messages_and_rules = []
-    with open("Day_19//Test.txt") as data_file:
+    test_satellite_messages_and_rules_one = []
+    with open("Day_19//Test_Part_One.txt") as data_file:
         for line in data_file:
-            test_satellite_messages_and_rules.append(line.strip())
+            test_satellite_messages_and_rules_one.append(line.strip())
+
+    test_satellite_messages_and_rules_two = []
+    with open("Day_19//Test_Part_Two.txt") as data_file:
+        for line in data_file:
+            test_satellite_messages_and_rules_two.append(line.strip())
 
     test_messages_matching_rule_zero = 2
+    test_messages_matching_rule_zero_replacing_rules = 12
     
-    if get_messages_matching_rule_zero(test_satellite_messages_and_rules) == test_messages_matching_rule_zero:
+    if get_messages_matching_rule_zero(test_satellite_messages_and_rules_one) == test_messages_matching_rule_zero:
         print("Solution Part One: " + str(get_messages_matching_rule_zero(satellite_messages_and_rules)))
     else:
         print("Implementation Part One Wrong")
 
-    print("Solution Part Two: " + str(get_messages_matching_rule_zero_replacing_rules(satellite_messages_and_rules)))
+    if get_messages_matching_rule_zero_replacing_rules(test_satellite_messages_and_rules_two) == test_messages_matching_rule_zero_replacing_rules:
+        print("Solution Part Two: " + str(get_messages_matching_rule_zero_replacing_rules(satellite_messages_and_rules)))
+    else:
+        print("Implementation Part Two Wrong")
         
