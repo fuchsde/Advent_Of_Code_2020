@@ -32,20 +32,22 @@ def play_recursive_combat_and_return_score(deck_one, deck_two, return_winner = F
 
     while len(deck_two) > 0 and len(deck_one) > 0:
         
-        if len(deck_one) > int(deck_one[0]) and len(deck_two) > int(deck_two[0]):
-            winner = play_recursive_combat_and_return_score(deck_one[1:int(deck_one[0])+1].copy(), deck_two[1:int(deck_two[0])+1].copy(), True)
-            if winner == 1:
-                deck_one.append(deck_one.pop(0))
-                deck_one.append(deck_two.pop(0))
-            else:
-                deck_two.append(deck_two.pop(0))
-                deck_two.append(deck_one.pop(0))
+        if (' '.join(map(str, deck_one)) + " - " +' '.join(map(str, deck_two))) in played_rounds:
+            deck_two.clear()
         else:
-            if (' '.join(map(str, deck_one)) + " - " +' '.join(map(str, deck_two))) in played_rounds:
-                deck_two.clear()
-            else:
-                played_rounds.append(' '.join(map(str, deck_one)) + " - " + ' '.join(map(str, deck_two)))
+            played_rounds.append(' '.join(map(str, deck_one)) + " - " + ' '.join(map(str, deck_two)))
 
+            if len(deck_one) > int(deck_one[0]) and len(deck_two) > int(deck_two[0]):
+                winner = play_recursive_combat_and_return_score(deck_one[1:int(deck_one[0])+1].copy(), 
+                                                                deck_two[1:int(deck_two[0])+1].copy(), 
+                                                                True)
+                if winner == 1:
+                    deck_one.append(deck_one.pop(0))
+                    deck_one.append(deck_two.pop(0))
+                else:
+                    deck_two.append(deck_two.pop(0))
+                    deck_two.append(deck_one.pop(0))
+            else:
                 if int(deck_one[0]) > int(deck_two[0]):
                     deck_one.append(deck_one.pop(0))
                     deck_one.append(deck_two.pop(0))
@@ -53,19 +55,14 @@ def play_recursive_combat_and_return_score(deck_one, deck_two, return_winner = F
                     deck_two.append(deck_two.pop(0))
                     deck_two.append(deck_one.pop(0))
   
-    if len(deck_two) > 0:
-        if return_winner == True:
+    if return_winner == True:
+        if len(deck_two) > 0:
             return 2
         else:
-            score = count_score(deck_two)
-            return score
-    else:
-        if return_winner == True:
             return 1
-        else:
-            score = count_score(deck_one)
-            return score
-
+    else:
+        score = count_score(deck_two) + count_score(deck_one)
+        return score
 
 if __name__ == "__main__":
 
