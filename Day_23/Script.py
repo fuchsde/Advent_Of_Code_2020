@@ -1,5 +1,3 @@
-import time
-
 class cup():
     def __init__(self, id):
         self.id = id
@@ -41,7 +39,7 @@ def solving_function_part_one(cups_dictionary):
     for _ in range(0, len(labeling) - 1):
         current_id = cups_dictionary[current_id].next.id
         labeling_after_1 = labeling_after_1 + str(current_id)
-        
+
     return labeling_after_1
 
 def solving_function_part_two(cups_dictionary):
